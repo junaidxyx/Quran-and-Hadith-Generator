@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran & Hadith</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add any additional stylesheets or scripts here -->
+</head>
+<body>
+    <header>
+        <h1>Quran Verse Of The Day</h1>
+    </header>
+    
+    <main>
+        <section id="verse-container">
+            <% if (ayah) { %>
+                <blockquote id="verse-text">
+                  <%= ayah.verse.translations[0].text %>
+                </blockquote>
+                <p>
+                    Quran <%= ayah.verse.verse_key %>
+                </p>
+                <!-- <button action="/" method="POST" id="generate-button">Generate Random Verse</button> -->
+            <% } %>
+        </section>
+    </main>
+
+    <header>
+        <h1>Hadith Of The Day</h1>
+    </header>
+
+    <main>
+        <section id="hadith-container">
+            <% if (hadith) { %> 
+                <blockquote id="hadith-text">
+                  <%= hadith.hadiths[Math.floor(Math.random() * 7563)].text %>
+                </blockquote>
+                <p>
+                  <%= hadith.metadata.name %> - Hadith No. <%= hadith.hadiths[Math.floor(Math.random() * 7563)].hadithnumber %>
+                </p>
+                <!-- <button action="/" method="POST" id="generate-button">Generate Random Verse</button> -->
+            <% } else { %>
+                <p>Unable to load the Hadith.</p>
+            <% } %>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <%= new Date().getFullYear() %> Qur'an and Hadith Generator</p>
+    </footer>
+</body>
+</html>
+
+

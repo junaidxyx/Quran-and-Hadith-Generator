@@ -1,0 +1,1 @@
+# Quran-and-Hadith-Generator
